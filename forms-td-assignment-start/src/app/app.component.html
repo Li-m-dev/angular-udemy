@@ -13,6 +13,64 @@
            Upon submitting the form, you should simply print the Value of the Form to the Console.
            Optionally, display it in your template.
       -->
+      <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="address"> Mail address: </label>
+          <input
+            type="text"
+            class="form-control"
+            name="address"
+            ngModel
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password"> Password: </label>
+          <input
+            type="text"
+            class="form-control"
+            name="password"
+            ngModel
+            required
+            #password="ngModel"
+          />
+          <span class="help-block" *ngIf="!password.valid && password.touched">
+            Please enter a valid password
+          </span>
+        </div>
+        <div class="form-group">
+          <label>
+            Subscriptions:
+          </label>
+          <select
+            name="subscriptionType"
+            id="subscriptionType"
+            [ngModel]="defaultOption"
+            class="form-control"
+          >
+            <option
+              *ngFor="let subscriptionType of subscriptionTypes"
+              [value]="subscriptionType"
+              >{{ subscriptionType }}</option
+            >
+          </select>
+          <!-- dropdown: we put ngModel in select taf and value in option tag -->
+        </div>
+        <p class="help-block" *ngIf="!f.valid && f.touched">
+          The form is invalid
+        </p>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12">
+      <h3>Your Data</h3>
+      <p>Address:{{ user.address }}</p>
+      <p>Password: {{ user.password }}</p>
+      <p>Subscription Type: {{ user.subscriptionType }}</p>
     </div>
   </div>
 </div>
