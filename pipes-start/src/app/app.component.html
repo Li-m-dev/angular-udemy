@@ -7,12 +7,16 @@
         Add Server
       </button>
       <br /><br />
-      <h2>App Status: {{ appStatus | async }}</h2>
+      <h2>App Status: {{ appStatus | async | reverse }}</h2>
       <hr />
       <ul class="list-group">
         <li
           class="list-group-item"
-          *ngFor="let server of servers | filter: filteredStatus:'status'"
+          *ngFor="
+            let server of servers
+              | filter: filteredStatus:'status'
+              | sort: 'name'
+          "
           [ngClass]="getStatusClasses(server)"
         >
           <span class="badge">
