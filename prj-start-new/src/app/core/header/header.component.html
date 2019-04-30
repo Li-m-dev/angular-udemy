@@ -18,7 +18,7 @@
         <a
           style="cursor: pointer;"
           (click)="onLogout()"
-          *ngIf="authService.isAuthenticated()"
+          *ngIf="isAuthenticated()"
           >Logout</a
         >
       </li>
