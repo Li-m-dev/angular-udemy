@@ -4,6 +4,7 @@ import { HttpModule } from "@angular/http";
 
 import { AppComponent } from "./app.component";
 
+import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 
 import { SharedModule } from "./shared/shared.module";
@@ -15,8 +16,7 @@ import { CoreModule } from "./core/core.module";
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    HttpModule,
-
+    HttpClientModule,
     AppRoutingModule,
     SharedModule,
     SlModule,
