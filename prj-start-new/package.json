@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "typescript": "^2.9.2",
   "private": true,
   "dependencies": {
     "@angular/animations": "^6.0.0",
